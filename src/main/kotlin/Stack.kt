@@ -1,13 +1,13 @@
 interface Stack<T> {
     fun push(item: T)
     fun top(): T?
-    fun pop() : T?
+    fun pop(): T?
     fun count(): Int
     fun empty()
 }
 
-class MHStack<T>:Stack<T> {
-    private data class Node<T>(val value:T, var next:Node<T>? = null)
+class MHStack<T> : Stack<T> {
+    private data class Node<T>(val value: T, var next: Node<T>? = null)
     private var head: Node<T>? = null
     private var count = 0
 
@@ -21,7 +21,7 @@ class MHStack<T>:Stack<T> {
     }
     override fun pop(): T? {
         val oldHead = head
-        if(count > 0){
+        if (count > 0) {
             count--
             head = oldHead!!.next
         }

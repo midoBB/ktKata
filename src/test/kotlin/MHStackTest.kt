@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
-internal class MHStackTest{
+internal class MHStackTest {
     private lateinit var stack: Stack<Int>
 
     @BeforeEach

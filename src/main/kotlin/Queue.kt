@@ -1,11 +1,11 @@
 interface Queue<T> {
     fun enqueue(item: T)
-    fun dequeue():T?
+    fun dequeue(): T?
     val isEmpty: Boolean
 }
 
-class MHQueue<T> : Queue<T>{
-    internal data class Node<T>(val value: T, var next:Node<T>?=null)
+class MHQueue<T> : Queue<T> {
+    internal data class Node<T>(val value: T, var next: Node<T>? = null)
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
     override fun enqueue(item: T) {
@@ -20,16 +20,16 @@ class MHQueue<T> : Queue<T>{
     }
     override fun dequeue(): T? {
         val oldHead = head
-        if(!isEmpty){
+        if (!isEmpty) {
             head = oldHead?.next
-        } else {
-            head = null
-            tail = null
+            if (head == null) {
+                // The queue is now empty, update tail reference
+                tail = null
+            }
         }
         return oldHead?.value
     }
 
     override val isEmpty: Boolean
         get() = head == null
-
 }
